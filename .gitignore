@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.so
+.Python
+.pytest_cache/
+.coverage
+htmlcov/
+.mypy_cache/
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+backend/venv/
+
+# Runtime data
+*.log
+*.out
+*.db
+*.sqlite
+*.sqlite3
+backend/logs/
+backend/database/*.db
+backend/database/*.sqlite
+backend/database/*.sqlite3
+backend/uploads/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Editors / OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*~
+*.swp
+*.swo

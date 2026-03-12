@@ -1,0 +1,210 @@
+/* ============================================
+   DAIRY FARM DASHBOARD - MODAL STYLES
+   Modal dialogs and overlays
+   ============================================ */
+
+/* Modal Backdrop */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: var(--z-modal);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+}
+
+.modal.active {
+    display: block;
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: white;
+    margin: 50px auto;
+    padding: var(--spacing-xxxl);
+    border-radius: var(--radius-md);
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close {
+    cursor: pointer;
+    float: right;
+    font-size: 24px;
+    color: var(--color-text-muted);
+    transition: all var(--transition-speed) ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-md);
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+.modal-close:hover {
+    color: var(--color-danger);
+    background: rgba(231, 76, 60, 0.1);
+    transform: rotate(90deg);
+}
+
+/* Photo Modal */
+#photoModal {
+    display: none;
+    position: fixed;
+    z-index: var(--z-modal-photo);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#photoModal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Edit Modal */
+#editCowModal {
+    display: none;
+    position: fixed;
+    z-index: var(--z-modal-photo);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+}
+
+#editCowModal.active {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 5%;
+}
+
+/* Photo Drop Zone */
+#photoDropZone {
+    border: 2px dashed var(--color-primary);
+    border-radius: var(--radius-md);
+    padding: var(--spacing-xxxl);
+    text-align: center;
+    background: var(--bg-light);
+    cursor: pointer;
+    transition: all var(--transition-speed) ease;
+}
+
+#photoDropZone:hover {
+    border-color: var(--color-primary-dark);
+    background: var(--color-light);
+}
+
+#photoDropZone.dragover {
+    border-color: var(--color-primary-dark);
+    background: #e8f4f8;
+}
+
+/* Photo Preview */
+#photoPreview {
+    display: none;
+    max-width: 100%;
+    border-radius: var(--radius-md);
+    margin-top: 15px;
+}
+
+/* File Inputs */
+#photoModal input[type="file"],
+#editCowModal input[type="file"] {
+    display: none;
+}
+
+/* Filtered Cows Modal */
+#filteredCowsModal {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: var(--radius-md);
+    border-left: 4px solid var(--color-primary);
+    animation: slideIn 0.3s var(--transition-easing);
+}
+
+#filteredCowsModal.active {
+    display: block;
+}
+
+/* Lineage Modal */
+#lineageModal {
+    display: none;
+    margin-top: 20px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: var(--radius-md);
+    border-left: 4px solid #9b59b6;
+    animation: slideIn 0.3s var(--transition-easing);
+}
+
+#lineageModal.active {
+    display: block;
+}
+
+/* Cow Dashboard Modal */
+#cowDashboardModal {
+    display: none;
+    position: fixed;
+    z-index: var(--z-modal-dashboard);
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    overflow-y: auto;
+}
+
+#cowDashboardModal.active {
+    display: block;
+}
+
+#cowDashboardModal .modal-content {
+    margin: 20px auto;
+    max-width: 1200px;
+    width: 95%;
+    padding: 40px;
+}
+
+/* Responsive Modals */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        margin: 20px auto;
+        padding: var(--spacing-lg);
+        max-height: calc(100vh - 40px);
+        overflow-y: auto;
+    }
+
+    #photoDropZone {
+        padding: var(--spacing-lg);
+    }
+
+    #cowDashboardModal .modal-content {
+        padding: var(--spacing-lg);
+        width: calc(100% - 16px);
+        margin: 8px auto;
+        max-height: calc(100vh - 16px);
+        overflow-y: auto;
+    }
+
+    #editCowModal.active {
+        align-items: flex-start;
+        padding: 10px 6px;
+    }
+}

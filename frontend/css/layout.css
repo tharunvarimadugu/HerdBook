@@ -1,0 +1,128 @@
+/* ============================================
+   DAIRY FARM DASHBOARD - LAYOUT STYLES
+   Header, navigation, container, and tab styles
+   ============================================ */
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, var(--color-dark), var(--color-medium));
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-bottom: 4px solid var(--color-primary);
+}
+
+.header h1 {
+    font-size: var(--font-size-xxl);
+    margin-bottom: 8px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    color: white;
+}
+
+.header p {
+    font-size: var(--font-size-small);
+    opacity: 0.85;
+    letter-spacing: 0.3px;
+}
+
+/* Navigation Tabs */
+.nav-tabs {
+    display: flex;
+    background: linear-gradient(90deg, #ecf0f1, #ffffff);
+    border-bottom: 3px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: var(--z-sticky);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    flex-wrap: wrap;
+}
+
+.nav-tab {
+    padding: 14px 24px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    font-size: var(--font-size-base);
+    font-weight: 600;
+    color: #555;
+    border-bottom: 3px solid transparent;
+    transition: all var(--transition-speed) var(--transition-easing);
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+}
+
+.nav-tab:hover {
+    background: rgba(52, 152, 219, 0.08);
+    color: var(--color-primary);
+}
+
+.nav-tab.active {
+    color: var(--color-dark);
+    border-bottom-color: var(--color-danger);
+    background: white;
+}
+
+/* Container */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: var(--spacing-xxxl) 20px;
+}
+
+/* Tab Content */
+.tab-content {
+    display: none;
+    animation: fadeIn var(--transition-speed) ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .nav-tabs {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        justify-content: flex-start;
+        padding-bottom: 4px;
+    }
+
+    .nav-tab {
+        flex: 0 0 auto;
+        padding: 10px 12px;
+        font-size: var(--font-size-small);
+    }
+
+    .header {
+        padding: 22px 12px;
+    }
+
+    .header h1 {
+        font-size: clamp(1.25rem, 4.6vw, 1.7rem);
+        line-height: 1.25;
+    }
+
+    .header p {
+        font-size: 12px;
+    }
+
+    .container {
+        padding: var(--spacing-xl) 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-tab {
+        padding: 9px 10px;
+        font-size: 12px;
+    }
+
+    .header p {
+        display: none;
+    }
+}

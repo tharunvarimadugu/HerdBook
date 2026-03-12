@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      FLASK_ENV: production
+      FLASK_APP: run.py
+      SECRET_KEY: dev-secret-key-change-in-production
+      DATABASE_URL: sqlite:///database/farm.db
+    volumes:
+      - .:/app
+      - ./database:/app/database
+      - ./logs:/app/logs
+      - ./uploads:/app/uploads
+    command: ./start-production.sh
+    networks:
+      - farm_network
+
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_DB: farm_db
+      POSTGRES_USER: farmadmin
+      POSTGRES_PASSWORD: secure-password-here
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - farm_network
+    profiles:
+      - production
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - api
+    networks:
+      - farm_network
+    profiles:
+      - production
+
+volumes:
+  postgres_data:
+
+networks:
+  farm_network:
+    driver: bridge

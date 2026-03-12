@@ -1,0 +1,229 @@
+/* ============================================
+   DAIRY FARM DASHBOARD - ANIMATIONS
+   Transitions and keyframe animations
+   ============================================ */
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Slide In Animation */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+        max-height: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        max-height: 2000px;
+    }
+}
+
+/* Slide Out Animation */
+@keyframes slideOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(400px);
+    }
+}
+
+/* Pulse Animation */
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Bounce Animation */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Spin Animation */
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Shimmer Animation (Loading) */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+/* Slide Right Animation */
+@keyframes slideRight {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Scale Up Animation */
+@keyframes scaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Fade Out Animation */
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* Global Transition Classes */
+.fade-in {
+    animation: fadeIn var(--transition-speed) ease;
+}
+
+.fade-out {
+    animation: fadeOut var(--transition-speed) ease;
+}
+
+.slide-in {
+    animation: slideIn var(--transition-speed) var(--transition-easing);
+}
+
+.slide-right {
+    animation: slideRight var(--transition-speed) var(--transition-easing);
+}
+
+.scale-up {
+    animation: scaleUp var(--transition-speed) var(--transition-easing);
+}
+
+.pulse {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.loading {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 1000px 100%;
+    animation: shimmer 2s infinite;
+}
+
+/* Hover Effects */
+.hover-lift {
+    transition: transform var(--transition-speed) var(--transition-easing),
+                box-shadow var(--transition-speed) var(--transition-easing);
+}
+
+.hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.hover-scale {
+    transition: transform var(--transition-speed) var(--transition-easing);
+}
+
+.hover-scale:hover {
+    transform: scale(1.05);
+}
+
+.hover-glow {
+    transition: box-shadow var(--transition-speed) var(--transition-easing);
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 15px rgba(52, 152, 219, 0.5);
+}
+
+/* Smooth Color Transitions */
+.smooth-color {
+    transition: color var(--transition-speed) var(--transition-easing),
+                background-color var(--transition-speed) var(--transition-easing);
+}
+
+/* Smooth All Transitions */
+.smooth-all {
+    transition: all var(--transition-speed) var(--transition-easing);
+}
+/* ============================================
+   TOAST NOTIFICATIONS
+   ============================================ */
+
+.toast-notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 15px 20px;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-weight: 500;
+    z-index: 9999;
+    max-width: 400px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.toast-success {
+    background-color: #27ae60;
+    color: white;
+}
+
+.toast-error {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.toast-warning {
+    background-color: #f39c12;
+    color: white;
+}
+
+.toast-info {
+    background-color: #3498db;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .toast-notification {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        max-width: none;
+    }
+}
