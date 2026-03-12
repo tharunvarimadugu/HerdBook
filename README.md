@@ -17,8 +17,10 @@ A self-hostable dairy herd management app built for personal farm operations. It
 6. `python run.py`
 7. Open `http://<your-raspberry-pi-ip>:8000/`
 ## shell script run it under one command 
-backend 
+```bash
+cd backend
 ./start-production.sh
+```
 
 
 ## Raspberry Pi Notes
@@ -27,9 +29,3 @@ backend
 - SQLite is the simplest default for personal use.
 - For a long-running service, use `backend/start-production.sh`.
 
-## Testing
-
-```bash
-cd backend
-python3 -m unittest discover -s tests
-```
