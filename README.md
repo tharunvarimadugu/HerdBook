@@ -17,7 +17,7 @@ A self-hostable dairy herd management app built for personal farm operations. It
 6. `python run.py`
 7. Open `http://<your-raspberry-pi-ip>:8000/`
 ## shell script run it under one command 
-backed 
+backend 
 ./start-production.sh
 
 
